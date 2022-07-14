@@ -5,7 +5,7 @@ const SingleProduct = () => {
     const [product, singleProduct]=useState({});
     const params= useParams();
 
-    console.log(params);
+    // console.log(params);
 
     useEffect(() => {
         const options = {
