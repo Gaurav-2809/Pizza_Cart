@@ -3,7 +3,7 @@ import Product from '../components/Product'
 
 const Products = () => {
     const [products, setProducts] = useState([]);
-
+    
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -16,7 +16,7 @@ const Products = () => {
         fetch('https://pizzaallapala.p.rapidapi.com/productos', options)
             .then(response => response.json())
             .then(products => {
-                setProducts(products);
+                setProducts(products.productos);
             });
         
     },[]);
@@ -26,7 +26,7 @@ const Products = () => {
                 <h1 className='font-bold text-lg my-8'>Products</h1>
                 <div className='grid grid-cols-5 gap-24 my-8'>
                     {
-                        products.map((product) => {<Product key={product.id} />})
+                        products.map(product => <Product key={product.id} product={product}/>)
                     }
                 </div>
             </div>
